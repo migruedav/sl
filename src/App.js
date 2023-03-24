@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import NavBar from "./components/NavBar";
+import Demographics from "./paginas/Demographics";
+import Keywords from "./paginas/Keywords";
+import Mentions from "./paginas/Mentions";
+import Metrics from "./paginas/Metrics";
+import Sentiment from "./paginas/Sentiment";
+import topPosts from "./paginas/TopPosts";
+import Trends from "./paginas/Trends";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import TopPosts from "./paginas/TopPosts";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <NavBar/>
+      <Routes>
+        <Route path="/TopPosts" element={<TopPosts/>}></Route>
+        <Route path="/Demographics" element={<Demographics/>}></Route>
+        <Route path="/Keywords" element={<Keywords/>}></Route>
+        <Route path="/Mentions" element={<Mentions/>}></Route>
+        <Route path="/Metrics" element={<Metrics/>}></Route>
+        <Route path="/Sentiment" element={<Sentiment/>}></Route>
+        <Route path="/Trends" element={<Trends/>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
