@@ -1,38 +1,138 @@
-.App {
-  text-align: center;
+/* GENERAL */
+
+body {
+  background-color: #222222;
+  font-family: "Poppins", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #222222;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* NAV BAR */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 150px;
+  margin: 15px 0px;
+  height: 80px;
+  background-color: transparent;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.logo-text {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-left: 20px;
+  font-weight: bold;
+  font-family: Poppins;
+}
+
+.navbar-right {
+  display: flex;
+}
+
+.nav-item {
+  margin-right: 20px;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  color: red;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  flex: 1;
+}
+
+/* LEFT CONTAINERS */
+
+.left-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-evenly;
+  width: 20vw;
+  height: 70vh;
+  background-color: #ffffff;
+  border-radius: 40px;
+  margin-right: 40px;
+  min-width: 400px;
 }
 
-.App-link {
-  color: #61dafb;
+button{
+  height: 40px;
+  width: 200px;
+  color:white;
+  font-weight: 600;
+  font-size: 16px;
+  border:none;
+  border-radius: 10px;
+  font-family: Poppins;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+select{
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  border-color: transparent;
+}
+
+option{
+  text-align: center;
+  color:red !important;
+}
+
+.MuiSlider-root {
+  color: red !important;
+  width: 80% !important;
+  height: 8px !important;
+}
+
+.tituloizq{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+hr{
+  width: 300px;
+  height: 5px;
+  background-color: black;
+  border-radius: 50px;
+}
+
+/* RIGHT CONTAINERS */
+
+.right-container {
+  width: 60vw;
+  height: 70vh;
+  background-color: #ffffff;
+  border-radius: 40px;
+  min-width: 700px;
 }
