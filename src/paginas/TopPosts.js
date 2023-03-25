@@ -1,29 +1,42 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import SocialMediaCard from "../components/socialMediaCard";
 
 export default function TopPosts() {
   // VARIABLES
 
-  const [dias, setDias] = useState(120);
+  const [dias, setDias] = useState(30);
+  const [cantidad, setCantidad] = useState(20);
   const [facebook, setFacebook] = useState(true);
   const [instagram, setInstagram] = useState(true);
-  const [youtube, setYoutube] = useState(true);
+  const [youtube, setYoutube] = useState(false);
+  const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   // FUNCIONES
-  
-  const facebookButtonClick = (e) => {
+
+  const handleButtonClick = (e, state, setState) => {
     e.preventDefault();
-    setFacebook(!facebook);
-  };
-  const instagramButtonClick = (e) => {
-    e.preventDefault();
-    setInstagram(!instagram);
+    setState(!state);
   };
 
-  const youtubeButtonClick = (e) => {
-    e.preventDefault();
-    setYoutube(!youtube);
+  const fetchData = async (days, cantidad, facebook, instagram, youtube) => {
+    try {
+      setLoading(true);
+      const url = `https://fastapi-production-b90c.up.railway.app/top2?days=${days}&cantidad=${cantidad}&facebook=${facebook}&instagram=${instagram}&youtube=${youtube}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log(data);
+      setCards(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  useEffect(() => {
+    fetchData(dias, cantidad, facebook, instagram, youtube);
+  }, []);
 
   // RETURN
 
@@ -31,12 +44,11 @@ export default function TopPosts() {
     <div className="content">
       <div className="left-container">
         <div className="tituloizq">
-          <h1>TOP POSTS</h1>
+          <h1 className="titulo">TOP POSTS</h1>
           <hr className="divider" />
         </div>
         <button
-          className="buttonClassName"
-          onClick={facebookButtonClick}
+          onClick={(e) => handleButtonClick(e, facebook, setFacebook)}
           style={{
             backgroundColor: facebook ? "red" : "#222222",
           }}
@@ -44,23 +56,16 @@ export default function TopPosts() {
           Facebook
         </button>
         <button
-          className="buttonClassName"
-          onClick={instagramButtonClick}
+  
+          onClick={(e) => handleButtonClick(e, instagram, setInstagram)}
           style={{
             backgroundColor: instagram ? "red" : "#222222",
           }}
         >
           Instagram
         </button>
-        <button
-          className="buttonClassName"
-          onClick={youtubeButtonClick}
-          style={{
-            backgroundColor: youtube ? "red" : "#222222",
-          }}
-        >
-          Youtube
-        </button>
+        
+
         <p>Top Posts de los últimos</p>
         <select value={dias} onChange={(e) => setDias(e.target.value)}>
           <option value="7">7 días</option>
@@ -71,12 +76,39 @@ export default function TopPosts() {
           <option value="180">180 días</option>
           <option value="360">360 días</option>
         </select>
-        <p>{facebook ? "facebook true" : "facebook false"}</p>
-        <p>{instagram ? "instagram true" : "instagram false"}</p>
-        <p>{youtube ? "youtube true" : "youtube false"}</p>
+        <p>Cuántos posts quieres mostrar</p>
+        <select value={cantidad} onChange={(e) => setCantidad(e.target.value)}>
+          <option value="10">top 10 posts</option>
+          <option value="20">top 20 posts</option>
+          <option value="50">top 50 posts</option>
+          <option value="700">top 100 posts</option>
+        </select>
+        <button
+          className="fetch-button"
+          onClick={() =>
+            fetchData(dias, cantidad, facebook, instagram, youtube)
+          }
+          disabled={loading}
+          style={{backgroundColor: loading ? "#222222" : "red"}}>
+          {loading ? "Cargando..." : "Realizar Búsqueda"}
+        </button>
       </div>
 
-      <div className="right-container">TOP POSTS</div>
+      <div className="right-container">
+        {cards &&
+          cards.map((card, index) => (
+            <div key={index}>
+              <SocialMediaCard
+                fecha={card.fecha}
+                likes={card.likes}
+                imagen={card.imagen}
+                texto={card.texto}
+                color={card.color}
+                index={index + 1}
+              />
+            </div>
+          ))}
+      </div>
     </div>
   );
 }

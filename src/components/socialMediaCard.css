@@ -1,0 +1,77 @@
+
+.card {
+    width: 300px;
+    background-color: lightgray;
+    border-radius: 20px;
+    margin: 50px 20px 0px 20px;
+    box-shadow: 5px 5px 20px #0000004D;
+  }
+  
+  .card-profile-creador{
+    background-color: black;
+    color:white;
+    border-radius: 20px 20px 0px 0px;
+    text-align: center;
+    padding: 10px;
+  }
+  .card-profile-index{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    text-align: center;
+    line-height: 30px;
+    margin-left:30px;
+  }
+  .card-date{
+    line-height: 30px;
+    margin-left: 30px;
+    color: white;
+    align-self: center;
+  }
+  .card-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color:black;
+    border-radius: 20px 20px 0 0;
+    padding: 10px;
+  }
+  .card-profile-mentions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color:black;
+    padding: 10px;
+  }
+  
+  .heart-icon{
+    color:red;
+    line-height: 30px;
+    align-self: center;
+    padding-left: 20px;
+    padding-right: 8px;
+  }
+  
+  .likes{
+    align-self: center;
+    color: white;
+  }
+  
+  .social-line{
+    height: 5px;
+    background-color: blue;
+    width: 100%;
+  }
+  
+  .card-image{
+    width: 100%;
+  }
+  .card-text{
+    text-align: center;
+    padding:10px 10px 30px 10px;
+  }
+  
+  .card-line{
+    height: 5px;
+  }

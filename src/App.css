@@ -13,63 +13,6 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-/* NAV BAR */
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 150px;
-  margin: 15px 0px;
-  height: 80px;
-  background-color: transparent;
-}
-
-.navbar-left {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  border: 3px solid white;
-}
-
-.logo-text {
-  color: white;
-  font-size: 2rem;
-  font-weight: 600;
-  margin-left: 20px;
-  font-weight: bold;
-  font-family: Poppins;
-}
-
-.navbar-right {
-  display: flex;
-}
-
-.nav-item {
-  margin-right: 20px;
-  font-size: 1rem;
-  font-weight: 400;
-  cursor: pointer;
-  color: white;
-  text-decoration: none;
-}
-
-.nav-item:hover {
-  color: red;
-}
-
-.content {
-  display: flex;
-  justify-content: center;
-  padding: 50px;
-  flex: 1;
-}
-
 /* LEFT CONTAINERS */
 
 .left-container {
@@ -77,62 +20,80 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  width: 20vw;
-  height: 70vh;
+  width: 15vw;
+  height: 100%;
   background-color: #ffffff;
   border-radius: 40px;
   margin-right: 40px;
-  min-width: 400px;
+  min-width: 300px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
-button{
+button {
   height: 40px;
   width: 200px;
-  color:white;
+  color: white;
   font-weight: 600;
   font-size: 16px;
-  border:none;
+  border: none;
   border-radius: 10px;
   font-family: Poppins;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-select{
+select {
   width: 150px;
   height: 40px;
   text-align: center;
   border-color: transparent;
 }
 
-option{
+option {
   text-align: center;
-  color:red !important;
-}
-
-.MuiSlider-root {
   color: red !important;
-  width: 80% !important;
-  height: 8px !important;
 }
 
-.tituloizq{
+.titulo{
+  margin: 0;
+}
+.tituloizq {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin:0px;
 }
 
-hr{
-  width: 300px;
+hr {
+  width: 200px;
   height: 5px;
   background-color: black;
   border-radius: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 /* RIGHT CONTAINERS */
 
 .right-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
   width: 60vw;
   height: 70vh;
   background-color: #ffffff;
   border-radius: 40px;
-  min-width: 700px;
+  min-width: 400px;
+  overflow:scroll;
+  padding: 50px 10px 0px, 10px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.fetch-button{
+  background-color: red;
+  height: 60px;
 }

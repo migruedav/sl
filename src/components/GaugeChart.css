@@ -1,0 +1,23 @@
+text {
+  font-size: 0px !important;
+}
+
+text[text-anchor="middle"][x="200"][y="332"][font-family="arial"][font-size="40"][stroke="none"][stroke-width="0"][fill="#000000"] {
+  font-size: 50px !important;
+  font-family: Poppins;
+  font-weight: 700;
+}
+
+circle[cx="199.5"][cy="199.5"][r="24"][stroke="#666666"][stroke-width="1"][fill="#4684ee"] {
+  fill: red;
+}
+
+circle[cx="199.5"][cy="199.5"][r="180"][stroke="#333333"][stroke-width="1"][fill="#cccccc"] {
+  fill: black;
+}
+
+path[d="M342.41315920495117,156.18799154038655C203.23150317430301,210.50416523263365,156.69347989163003,219.07197790223515,155.0777283044785,213.81989528591834C153.461976717327,208.56781266960152,196.76849682569699,189.49583476736635,342.41315920495117,156.18799154038655"][stroke="#c63310"][stroke-width="1"][fill-opacity="0.7"][fill="#dc3912"] {
+  fill: black;
+  fill-opacity: 1;
+  stroke: black;
+}
