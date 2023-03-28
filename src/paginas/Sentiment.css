@@ -1,3 +1,20 @@
-.gauge{
+.gauge {
+    display: flex;
+  }
+
+  #reactgooglegraph-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 50px;
-}
+  }
+  
+  .container-indicadores{
+    margin-top: 20px;
+  }
+
+  .indicador{
+    font-size: 20px;
+    padding: 50px;
+    text-align: center;
+  }

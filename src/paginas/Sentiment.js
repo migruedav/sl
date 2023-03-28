@@ -6,11 +6,9 @@ export default function Mentions() {
   // VARIABLES
 
   const [dias, setDias] = useState(120);
-  const [cantidad, setCantidad] = useState(20);
   const [facebook, setFacebook] = useState(true);
   const [instagram, setInstagram] = useState(true);
-  const [sortedby, setSortedby] = useState("likes");
-  const [cards, setCards] = useState([]);
+  const [sentiment, setSentiment] = useState([]);
   const [loading, setLoading] = useState(false);
 
   // FUNCIONES
@@ -20,14 +18,14 @@ export default function Mentions() {
     setState(!state);
   };
 
-  const fetchData = async (days, cantidad, facebook, instagram, sortedby) => {
+  const fetchData = async (dias, facebook, instagram) => {
     try {
       setLoading(true);
-      const url = ""; // `https://fastapi-production-b90c.up.railway.app/mentions2?days=${days}&cantidad=${cantidad}&facebook=${facebook}&instagram=${instagram}&sortedby=${sortedby}`;
+      const url = `https://fastapi-production-b90c.up.railway.app/sentiment?days=${dias}&facebook=${facebook}&instagram=${instagram}`;
       const response = await fetch(url);
       const data = await response.json();
       console.log(data);
-      setCards(data);
+      setSentiment(data);
     } catch (error) {
       console.log(error);
     } finally {
@@ -36,7 +34,7 @@ export default function Mentions() {
   };
 
   useEffect(() => {
-    fetchData(dias, cantidad, facebook, instagram, sortedby);
+    fetchData(dias, facebook, instagram);
   }, []);
   // RETURN∫
   return (
@@ -77,7 +75,7 @@ export default function Mentions() {
         <button
           className="fetch-button"
           onClick={() =>
-            fetchData(dias, cantidad, facebook, instagram, sortedby)
+            fetchData(dias, facebook, instagram)
           }
           disabled={loading}
           style={{ backgroundColor: loading ? "#222222" : "red" }}
@@ -88,7 +86,7 @@ export default function Mentions() {
 
       <div className="right-container">
         <div className="gauge">
-          <GaugeChart className="gauge" />
+          <GaugeChart className="gauge"  sentiment={sentiment} dias={dias}/>
         </div>
       </div>
     </div>
