@@ -24,7 +24,6 @@ export default function Mentions() {
       const url = `https://fastapi-production-b90c.up.railway.app/sentiment?days=${dias}&facebook=${facebook}&instagram=${instagram}`;
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
       setSentiment(data);
     } catch (error) {
       console.log(error);
