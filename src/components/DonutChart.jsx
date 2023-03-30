@@ -20,7 +20,7 @@ const DonutChart = () => {
         tooltip: "my-tooltip-style",
       },
     },
-    colors: ["#FF1800", "#222222"],
+    colors: [ "#222222","#FF1800"],
     pieSliceText: "none",
     legend: "none",
   };
