@@ -4,8 +4,8 @@ import Chart from "react-google-charts";
 const DonutChart = () => {
   const data = [
     ["Género", "Usuarios"],
-    ["Hombres", 45],
-    ["Mujeres", 55],
+    ["Hombres", 84474],
+    ["Mujeres", 147907],
   ];
 
   const options = {

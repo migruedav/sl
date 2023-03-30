@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Demographics.css";
 import DonutChart from "../components/DonutChart";
 import BarsChart from "../components/BarsChart";
+import Tabla from "../components/Tabla";
 
 export default function Demographics() {
   const [dias, setDias] = useState(30);
@@ -68,6 +69,9 @@ export default function Demographics() {
           </div>
         </div>
         <BarsChart />
+        <div>
+          <Tabla />
+        </div>
       </div>
     </div>
   );
