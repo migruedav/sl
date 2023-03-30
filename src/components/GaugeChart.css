@@ -12,13 +12,12 @@ circle[cx="199.5"][cy="199.5"][r="180"][stroke="#333333"][stroke-width="1"][fill
   fill: black;
 }
 
-/* Selecciona el tercer path */
-path:nth-of-type() {
-  fill: yellow;
-}
-
-#reactgooglegraph-1 table tbody tr td div div:nth-of-type(1) div svg g g path {
-  fill: black;
+[id^="reactgooglegraph"]> table > tbody > tr > td > div > div:nth-child(1) > div > svg > g > g > path {
+  fill: black; /* Cambiar el color de relleno del elemento a rojo */
   fill-opacity: 1;
   stroke: black;
+}
+
+[id^="reactgooglegraph"] > table > tbody > tr > td > div > div:nth-child(1) > div > svg > g > text:nth-child(6){
+  fill-opacity: 0;
 }

@@ -1,22 +1,5 @@
-.gauge {
-    display: flex;
-  }
 
-  #reactgooglegraph-1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-  }
-  
-  #reactgooglegraph-3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-  }
-
-  #reactgooglegraph-3 {
+  [id^="reactgooglegraph"] {
     display: flex;
     justify-content: center;
     align-items: center;
