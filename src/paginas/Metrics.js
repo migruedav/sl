@@ -17,6 +17,10 @@ export default function Demographics() {
   return (
     <div className="content">
       <div className="left-container">
+        <div className="tituloizq">
+          <h1 className="titulo">METRICS</h1>
+          <hr className="divider" />
+        </div>
         <button
           className="button"
           onClick={(e) => handleButtonClick(e, facebook, setFacebook)}
