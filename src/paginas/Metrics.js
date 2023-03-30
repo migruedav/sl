@@ -45,6 +45,16 @@ export default function Demographics() {
           <option value="180">180 días</option>
           <option value="360">360 días</option>
         </select>
+        <button
+          className="fetch-button"
+          /*onClick={() =>
+            fetchData(dias, facebook, instagram)
+          }*/
+          disabled={loading}
+          style={{ backgroundColor: loading ? "#222222" : "red" }}
+        >
+          {loading ? "Cargando..." : "Realizar Búsqueda"}
+        </button>
       </div>
       <div className="right-container">
         <iframe
