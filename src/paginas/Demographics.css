@@ -1,0 +1,45 @@
+.male-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    border: 6px solid white;
+  }
+  
+  .male-chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 400px; /* altura del contenedor */
+  }
+.female-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    border: 6px solid white;
+  }
+  
+  .female-chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 400px; /* altura del contenedor */
+  }
+  
+  .charts-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 400px;
+  }
+  

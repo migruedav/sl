@@ -80,9 +80,8 @@ export default function Trends() {
       </div>
 
       <div className="right-container-trends">
-        <LineChart className="line-chart"/>
-        <div className="spacer">a</div>
-        <GeoChart/>
+        <LineChart className="line-chart" />
+        <GeoChart />
       </div>
     </div>
   );

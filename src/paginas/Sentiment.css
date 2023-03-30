@@ -3,7 +3,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
   }
 
   .container-indicadores{
@@ -14,4 +13,8 @@
     font-size: 20px;
     padding: 50px;
     text-align: center;
+  }
+
+  .divider-sentiment{
+    height: 70px;
   }

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Demographics.css";
+import DonutChart from "../components/DonutChart";
+import BarsChart from "../components/BarsChart";
 
 export default function Demographics() {
   const [dias, setDias] = useState(30);
@@ -35,18 +37,38 @@ export default function Demographics() {
         >
           Instagram
         </button>
-        <p>Métricas de los últimos</p>
-        <select value={dias} onChange={(e) => setDias(e.target.value)}>
-          <option value="7">7 días</option>
-          <option value="15">15 días</option>
-          <option value="30">30 días</option>
-          <option value="60">60 días</option>
-          <option value="120">120 días</option>
-          <option value="180">180 días</option>
-          <option value="360">360 días</option>
-        </select>
+        <button
+          className="fetch-button"
+          /*onClick={() =>
+            fetchData(dias, facebook, instagram)
+          }*/
+          disabled={loading}
+          style={{ backgroundColor: loading ? "#222222" : "red" }}
+        >
+          {loading ? "Cargando..." : "Realizar Búsqueda"}
+        </button>
       </div>
-      <div className="right-container"></div>
+      <div className="right-container">
+        <div className="charts-container">
+          <div className="male-chart-container">
+            <DonutChart className="male-chart" style={{ marginTop: 0 }} />
+            <img
+              className="male-img"
+              src="https://cdn.midjourney.com/72702343-ac6c-4ff1-8a4a-591e50953993/grid_0.png"
+              alt=""
+            />
+          </div>
+          <div className="female-chart-container">
+            <DonutChart className="male-chart" />
+            <img
+              className="female-img"
+              src="https://cdn.midjourney.com/2fafe310-a5b5-499c-bb7e-1400e016771f/grid_0.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <BarsChart />
+      </div>
     </div>
   );
 }

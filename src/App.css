@@ -86,7 +86,7 @@ hr {
   min-width: 400px;
   overflow: scroll;
   padding: 50px 10px 0,10px;
-  width: 60vw;
+  width: 1200px;
 }
 
 ::-webkit-scrollbar {

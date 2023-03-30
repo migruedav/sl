@@ -85,6 +85,7 @@ export default function Mentions() {
 
       <div className="right-container">
         <div className="gauge">
+          <div className="divider-sentiment"></div>
           <GaugeChart className="gauge"  sentiment={sentiment} dias={dias}/>
         </div>
       </div>
