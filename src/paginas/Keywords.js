@@ -4,7 +4,7 @@ import MyWordCloud from "../components/WordCloud";
 
 
 export default function MyPage() {
-  const [dias, setDias] = useState(30);
+  const [dias, setDias] = useState(365);
   const [data, setData] = useState([]);
   const [tendencia, setTendencia] = useState("tiempo");
   const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ export default function MyPage() {
   const fetchData = async (dias) => {
     try {
       setLoading(true);
-      const url = `https://fastapi-production-b90c.up.railway.app/trends?days=${dias}}`;
+      const url = `https://fastapi-production-b90c.up.railway.app/wordcloud?days=${dias}`;
       const response = await fetch(url);
       const data = await response.json();
       console.log(data);
@@ -51,7 +51,7 @@ export default function MyPage() {
           <option value="60">60 días</option>
           <option value="120">120 días</option>
           <option value="180">180 días</option>
-          <option value="360">360 días</option>
+          <option value="365">365 días</option>
         </select>
 
         <button
@@ -64,7 +64,7 @@ export default function MyPage() {
         </button>
         </div>
         <div className="right-container">
-            <MyWordCloud/>
+            <MyWordCloud keywords={data}/>
         </div>
       </div>
   );
