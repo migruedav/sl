@@ -1,90 +1,34 @@
-import React from 'react';
-import { Chart } from 'react-google-charts';
-import "./LineChart.css"
+import React from "react";
+import { Chart } from "react-google-charts";
+import "./LineChart.css";
 
-function LineChart() {
-  const chartData = [['Fecha', 'Formica', 'Ralph Wilson'],
-  ['2022-04-03', 51, 11],
-  ['2022-04-10', 36, 5],
-  ['2022-04-17', 52, 0],
-  ['2022-04-24', 51, 0],
-  ['2022-05-01', 51, 0],
-  ['2022-05-08', 51, 0],
-  ['2022-05-15', 48, 4],
-  ['2022-05-22', 25, 0],
-  ['2022-05-29', 41, 0],
-  ['2022-06-05', 61, 0],
-  ['2022-06-12', 53, 8],
-  ['2022-06-19', 61, 0],
-  ['2022-06-26', 61, 6],
-  ['2022-07-03', 44, 0],
-  ['2022-07-10', 66, 0],
-  ['2022-07-17', 79, 8],
-  ['2022-07-24', 57, 0],
-  ['2022-07-31', 52, 0],
-  ['2022-08-07', 74, 7],
-  ['2022-08-14', 70, 18],
-  ['2022-08-21', 78, 9],
-  ['2022-08-28', 78, 12],
-  ['2022-09-04', 43, 10],
-  ['2022-09-11', 54, 7],
-  ['2022-09-18', 28, 0],
-  ['2022-09-25', 51, 12],
-  ['2022-10-02', 45, 0],
-  ['2022-10-09', 45, 0],
-  ['2022-10-16', 56, 0],
-  ['2022-10-23', 55, 0],
-  ['2022-10-30', 60, 0],
-  ['2022-11-06', 71, 7],
-  ['2022-11-13', 59, 0],
-  ['2022-11-20', 37, 10],
-  ['2022-11-27', 39, 0],
-  ['2022-12-04', 41, 9],
-  ['2022-12-11', 45, 0],
-  ['2022-12-18', 44, 14],
-  ['2022-12-25', 62, 0],
-  ['2023-01-01', 100, 0],
-  ['2023-01-08', 71, 8],
-  ['2023-01-15', 79, 6],
-  ['2023-01-22', 71, 0],
-  ['2023-01-29', 73, 0],
-  ['2023-02-05', 61, 10],
-  ['2023-02-12', 82, 0],
-  ['2023-02-19', 70, 8],
-  ['2023-02-26', 65, 10],
-  ['2023-03-05', 66, 5],
-  ['2023-03-12', 49, 6],
-  ['2023-03-19', 55, 14]];
+function LineChart(props) {
+  const chartData = props.data;
 
   const options = {
-    title: '',
-    curveType: 'function',
-    legend: { position: 'none' },
-    backgroundColor: 'red',
-    chartArea: { width: '100%', height: '100%' },
+    title: "",
+    curveType: "function",
+    legend: { position: "none" },
+    backgroundColor: "red",
+    chartArea: { width: "90%", height: "100%" },
     series: {
-      0: { color: 'white', lineWidth: 3, pointSize: 8 },
-      1: { color: 'yellow', lineWidth: 3, pointSize: 8 }
+      0: { color: "white", lineWidth: 3, pointSize: 8 },
+      1: { color: "yellow", lineWidth: 3, pointSize: 8 },
+      2: { color: "green", lineWidth: 3, pointSize: 8 },
+      3: { color: "orange", lineWidth: 3, pointSize: 8 },
+      4: { color: "blue", lineWidth: 3, pointSize: 8 },
     },
-    hAxis: { textPosition: 'none' },
-    vAxis: { textPosition: 'none' },
+    hAxis: { textPosition: "none" },
+    vAxis: { textPosition: "none" },
     tooltip: {
       isHtml: true,
     },
-    focusTarget: 'category',
-    width: 750,
-    height: 400
+    focusTarget: "category",
+    width: "100%",
+    height: "500px",
   };
 
-  return (
-    <Chart
-      chartType="LineChart"
-      data={chartData}
-      options={options}
-      width="100%"
-      height="500px"
-    />
-  );
+  return <Chart chartType="LineChart" data={chartData} options={options} />;
 }
 
 export default LineChart;

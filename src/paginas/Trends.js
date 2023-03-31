@@ -7,8 +7,8 @@ import { Line } from "react-chartjs-2";
 export default function Trends() {
   // VARIABLES
 
-  const [dias, setDias] = useState(30);
-  const [keywords, setKeywords] = useState(["Formica"]);
+  const [dias, setDias] = useState(60);
+  const [keywords, setKeywords] = useState(["formica"]);
   const [data, setData] = useState([]);
   const [tendencia, setTendencia] = useState("tiempo");
   const [loading, setLoading] = useState(false);
@@ -60,13 +60,12 @@ export default function Trends() {
         <input type="text" value={keywords} onChange={handleInputChange} />
         <p>Score de los últimos</p>
         <select value={dias} onChange={(e) => setDias(e.target.value)}>
-          <option value="7">7 días</option>
           <option value="15">15 días</option>
           <option value="30">30 días</option>
           <option value="60">60 días</option>
           <option value="120">120 días</option>
           <option value="180">180 días</option>
-          <option value="360">360 días</option>
+          <option value="365">365 días</option>
         </select>
 
         <button
@@ -80,8 +79,9 @@ export default function Trends() {
       </div>
 
       <div className="right-container-trends">
-        <LineChart className="line-chart" />
-        <GeoChart />
+        <LineChart className="line-chart" data={data.iot} />
+        <div className="divider2"></div>
+        <GeoChart data ={data.ibr}/>
       </div>
     </div>
   );
