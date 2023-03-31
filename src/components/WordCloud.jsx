@@ -2,7 +2,6 @@ import React from "react";
 import ReactWordcloud from "react-wordcloud";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
-//import words from "./words";
 
 const options = {
   colors: ['#ff0000', '#e60000', '#cc0000', '#b30000', '#990000', '#800000'],

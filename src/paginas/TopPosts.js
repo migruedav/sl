@@ -25,7 +25,6 @@ export default function TopPosts() {
       const url = `https://fastapi-production-b90c.up.railway.app/top2?days=${days}&cantidad=${cantidad}&facebook=${facebook}&instagram=${instagram}&youtube=${youtube}`;
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
       setCards(data);
     } catch (error) {
       console.log(error);

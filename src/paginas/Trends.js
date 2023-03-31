@@ -26,7 +26,6 @@ export default function Trends() {
       const url = `https://fastapi-production-b90c.up.railway.app/trends?days=${dias}&keywords=${keywords}`;
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
       setData(data);
     } catch (error) {
       console.log(error);
@@ -44,7 +43,6 @@ export default function Trends() {
     fetchData(dias, keywords);
   }, []);
 
-  console.log(keywords);
 
   // RETURN
 

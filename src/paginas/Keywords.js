@@ -22,7 +22,6 @@ export default function MyPage() {
       const url = `https://fastapi-production-b90c.up.railway.app/wordcloud?days=${dias}`;
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
       setData(data);
     } catch (error) {
       console.log(error);
