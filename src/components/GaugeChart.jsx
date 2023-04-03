@@ -3,7 +3,7 @@ import { Chart } from "react-google-charts";
 import "./GaugeChart.css";
 
 const GaugeChart = (props) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const data = [
     ["Label", "Value"],
     ["Sentiment", parseInt(props.sentiment.total_str)],
@@ -22,12 +22,6 @@ const GaugeChart = (props) => {
     yellowColor: "#4F4F4F",
     greenColor: "#FF0000",
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
 
   return (
     <div style={{ width: "100%", height: "100%" }}>

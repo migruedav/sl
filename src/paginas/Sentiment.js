@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GaugeChart from "../components/GaugeChart";
 import "./Sentiment.css";
+import { NewtonsCradle } from '@uiball/loaders'
 
 export default function Mentions() {
   // VARIABLES
@@ -84,10 +85,14 @@ export default function Mentions() {
       </div>
 
       <div className="right-container">
-        <div className="gauge">
+        {loading?<div className="newtons-cradle-rc"><NewtonsCradle 
+ size={80}
+ speed={1.4} 
+ color="gray" 
+/></div>:<div className="gauge">
           <div className="divider-sentiment"></div>
           <GaugeChart className="gauge"  sentiment={sentiment} dias={dias}/>
-        </div>
+        </div>}
       </div>
     </div>
   );
