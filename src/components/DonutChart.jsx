@@ -1,13 +1,14 @@
 import React from "react";
 import Chart from "react-google-charts";
 
-const DonutChart = () => {
+const DonutChart = (props) => {
+  console.log(props);
   const data = [
     ["Género", "Usuarios"],
-    ["Hombres", 84474],
-    ["Mujeres", 147907],
+    ["Hombres", props.data.male],
+    ["Mujeres", props.data.female],
   ];
-
+  
   const options = {
     animation: {
       startup: true,
@@ -20,7 +21,7 @@ const DonutChart = () => {
         tooltip: "my-tooltip-style",
       },
     },
-    colors: [ "#222222","#FF1800"],
+    colors: props.colors,
     pieSliceText: "none",
     legend: "none",
   };

@@ -8,9 +8,10 @@ import Mentions from "./paginas/Mentions";
 import Metrics from "./paginas/Metrics";
 import Sentiment from "./paginas/Sentiment";
 import topPosts from "./paginas/TopPosts";
+import TopPosts from "./paginas/TopPosts";
 import Trends from "./paginas/Trends";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import TopPosts from "./paginas/TopPosts";
+
 
 function App() {
   return (

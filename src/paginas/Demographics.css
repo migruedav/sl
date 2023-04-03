@@ -43,3 +43,11 @@
     width: 400px;
   }
   
+
+  #ColumnChart > div > div:nth-child(1) > div > svg > rect{
+    fill:transparent;
+  }
+
+  #ColumnChart{
+    margin-top: -110px;
+  }

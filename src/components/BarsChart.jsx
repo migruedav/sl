@@ -13,7 +13,7 @@ const options = {
     0: { color: "#FF1800", width: "80%", type: "bars" },
     1: { color: "#222222", width: "80%", type: "bars" },
   },
-  chartArea: { width: "80%" },
+  chartArea: { width: "80%"},
   legend: { position: "none" },
   title: "",
   animation: {
@@ -29,20 +29,12 @@ const options = {
   },
 };
 
-const data = [['Edad', 'Femenino', 'Masculino'],
-['13-17', 12, 10],
-['18-24', 315, 310],
-['25-34', 4454, 3949],
-['35-44', 5588, 5196],
-['45-54', 3139, 2347],
-['55-64', 831, 450],
-['65+', 256, 158]]
 
-const BarsChart = () => {
+const BarsChart = (props) => {
   return (
     <Chart
       chartType="ColumnChart"
-      data={data}
+      data={props.data}
       options={options}
       graph_id="ColumnChart"
       width="100%"
