@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import GaugeChart from "../components/GaugeChart";
 import "./Sentiment.css";
-import { NewtonsCradle } from '@uiball/loaders'
 
-export default function Mentions() {
+export default function Sentiment() {
   // VARIABLES
-
   const [dias, setDias] = useState(120);
   const [facebook, setFacebook] = useState(true);
   const [instagram, setInstagram] = useState(true);
@@ -13,10 +11,9 @@ export default function Mentions() {
   const [loading, setLoading] = useState(false);
 
   // FUNCIONES
-
-  const handleButtonClick = (e, state, setState) => {
+  const handleButtonClick = (e, currentState, setState) => {
     e.preventDefault();
-    setState(!state);
+    setState(!currentState);
   };
 
   const fetchData = async (dias, facebook, instagram) => {
@@ -35,16 +32,16 @@ export default function Mentions() {
 
   useEffect(() => {
     fetchData(dias, facebook, instagram);
-  }, []);
-  // RETURN∫
+  }, [dias, facebook, instagram]);
+
+  // RETURN
   return (
     <div className="content">
       <div className="left-container">
-        <div className="tituloizq">
-          <h1 className="titulo">SENTIMENT</h1>
+        <div className="title-left">
+          <h1 className="title">Sentiment</h1>
           <hr className="divider" />
         </div>
-
         <button
           className="button"
           onClick={(e) => handleButtonClick(e, facebook, setFacebook)}
@@ -63,36 +60,39 @@ export default function Mentions() {
         >
           Instagram
         </button>
-
         <p>Comentarios de los últimos</p>
         <select value={dias} onChange={(e) => setDias(e.target.value)}>
-          <option value="30">30 días</option>
-          <option value="60">60 días</option>
-          <option value="120">120 días</option>
-          <option value="180">180 días</option>
-          <option value="360">360 días</option>
+          <option key="30" value="30">
+            30 días
+          </option>
+          <option key="60" value="60">
+            60 días
+          </option>
+          <option key="120" value="120">
+            120 días
+          </option>
+          <option key="180" value="180">
+            180 días
+          </option>
+          <option key="365" value="365">
+            365 días
+          </option>
         </select>
         <button
           className="fetch-button"
-          onClick={() =>
-            fetchData(dias, facebook, instagram)
-          }
+          onClick={() => fetchData(dias, facebook, instagram)}
           disabled={loading}
           style={{ backgroundColor: loading ? "#222222" : "red" }}
+          title="Realizar búsqueda en Facebook e Instagram"
         >
-          {loading ? "Cargando..." : "Realizar Búsqueda"}
+          {loading ? "Cargando..." : "Realizar búsqueda"}
         </button>
       </div>
-
       <div className="right-container">
-        {loading?<div className="newtons-cradle-rc"><NewtonsCradle 
- size={80}
- speed={1.4} 
- color="gray" 
-/></div>:<div className="gauge">
+        <div className="gauge">
           <div className="divider-sentiment"></div>
-          <GaugeChart className="gauge"  sentiment={sentiment} dias={dias}/>
-        </div>}
+          <GaugeChart className="gauge" sentiment={sentiment} loading={loading} dias={dias} />
+        </div>
       </div>
     </div>
   );

@@ -2,10 +2,9 @@ import React from "react";
 import Chart from "react-google-charts";
 
 const DonutChart = (props) => {
-  console.log(props);
   const data = [
     ["Género", "Usuarios"],
-    ["Hombres", props.data.male],
+    ["Hombres",props.data.male],
     ["Mujeres", props.data.female],
   ];
   

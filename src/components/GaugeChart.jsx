@@ -6,7 +6,7 @@ const GaugeChart = (props) => {
   const [loading, setLoading] = useState(false);
   const data = [
     ["Label", "Value"],
-    ["Sentiment", parseInt(props.sentiment.total_str)],
+    ["Sentiment", props.loading ? 0 : parseInt(props.sentiment.total_str)],
   ];
 
   const options = {
@@ -25,27 +25,19 @@ const GaugeChart = (props) => {
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      {loading ? (
-        <p>Cargando...</p>
-      ) : (
-        <Chart
-          chartType="Gauge"
-          data={data}
-          options={options}
-          width="100%"
-          height="400px"
-        />
-      )}
+      <Chart
+        chartType="Gauge"
+        data={data}
+        options={options}
+        width="100%"
+        height="400px"
+      />
       <div className="container-indicadores">
-        {loading ? (
-          <p></p>
-        ) : (
-          <div className="indicador">
-            La percepción sobre tu marca de los últimos {props.dias} días es{" "}
-            <br />
-            {props.sentiment.percepcion}
-          </div>
-        )}
+        <div className="indicador">
+          La percepción sobre tu marca de los últimos {props.dias} días es{" "}
+          <br />
+          {props.sentiment.percepcion}
+        </div>
       </div>
     </div>
   );
