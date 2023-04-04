@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Trends.css";
 import LineChart from "../components/LineChart";
 import GeoChart from "../components/GeoChart";
+import InfoButton from"../components/InfoButton";
 import { Line } from "react-chartjs-2";
 
 export default function Trends() {
@@ -43,9 +44,7 @@ export default function Trends() {
     fetchData(dias, keywords);
   }, []);
 
-
   // RETURN
-
   return (
     <div className="content">
       <div className="left-container">
@@ -77,10 +76,13 @@ export default function Trends() {
       </div>
 
       <div className="right-container-trends">
+        <InfoButton/>
         <LineChart className="line-chart" data={data.iot} />
         <div className="divider2"></div>
-        <GeoChart data ={data.ibr}/>
+        <GeoChart data={data.ibr} />
       </div>
     </div>
   );
 }
+
+
