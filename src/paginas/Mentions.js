@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MentionsCard from "../components/mentionsCard";
-
+import { ThreeBody } from "@uiball/loaders";
 
 export default function Mentions() {
   // VARIABLES
@@ -73,7 +73,7 @@ export default function Mentions() {
           <option value="60">60 días</option>
           <option value="120">120 días</option>
           <option value="180">180 días</option>
-          <option value="360">360 días</option>
+          <option value="365">365 días</option>
         </select>
         <p>Recibir las menciones </p>
         <select value={sortedby} onChange={(e) => setSortedby(e.target.value)}>
@@ -100,7 +100,12 @@ export default function Mentions() {
       </div>
 
       <div className="right-container">
-        {cards &&
+        {loading ? (
+          <div className="loader-container">
+            <ThreeBody size={60} speed={1.1} color="red" />
+          </div>
+        ) : (
+          cards &&
           cards.map((card, index) => (
             <div key={index}>
               <MentionsCard
@@ -113,7 +118,8 @@ export default function Mentions() {
                 creador={card.creador}
               />
             </div>
-          ))}
+          ))
+        )}
       </div>
     </div>
   );

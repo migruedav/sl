@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SocialMediaCard from "../components/socialMediaCard";
+import "./TopPosts.css"
+import { ThreeBody } from '@uiball/loaders'
 
 export default function TopPosts() {
   // VARIABLES
@@ -55,7 +57,6 @@ export default function TopPosts() {
           Facebook
         </button>
         <button
-  
           onClick={(e) => handleButtonClick(e, instagram, setInstagram)}
           style={{
             backgroundColor: instagram ? "red" : "#222222",
@@ -63,7 +64,6 @@ export default function TopPosts() {
         >
           Instagram
         </button>
-        
 
         <p>Top Posts de los últimos</p>
         <select value={dias} onChange={(e) => setDias(e.target.value)}>
@@ -73,7 +73,7 @@ export default function TopPosts() {
           <option value="60">60 días</option>
           <option value="120">120 días</option>
           <option value="180">180 días</option>
-          <option value="360">360 días</option>
+          <option value="365">365 días</option>
         </select>
         <p>Cuántos posts quieres mostrar</p>
         <select value={cantidad} onChange={(e) => setCantidad(e.target.value)}>
@@ -88,25 +88,36 @@ export default function TopPosts() {
             fetchData(dias, cantidad, facebook, instagram, youtube)
           }
           disabled={loading}
-          style={{backgroundColor: loading ? "#222222" : "red"}}>
+          style={{ backgroundColor: loading ? "#222222" : "red" }}
+        >
           {loading ? "Cargando..." : "Realizar Búsqueda"}
         </button>
       </div>
 
       <div className="right-container">
-        {cards &&
-          cards.map((card, index) => (
-            <div key={index}>
-              <SocialMediaCard
-                fecha={card.fecha}
-                likes={card.likes}
-                imagen={card.imagen}
-                texto={card.texto}
-                color={card.color}
-                index={index + 1}
-              />
-            </div>
-          ))}
+        {loading ? (
+         <div className="loader-container"><ThreeBody 
+         size={60}
+         speed={1.1} 
+         color="red" 
+        /></div>
+        ) : (
+          <div className="topposts-cards-container">
+            {cards &&
+              cards.map((card, index) => (
+                <div key={index}>
+                  <SocialMediaCard
+                    fecha={card.fecha}
+                    likes={card.likes}
+                    imagen={card.imagen}
+                    texto={card.texto}
+                    color={card.color}
+                    index={index + 1}
+                  />
+                </div>
+              ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -33,6 +33,19 @@ select:focus {
   padding-right: 15px;
 }
 
-.divider2{
-    margin: 40px;
+.divider2 {
+  margin: 40px;
+}
+
+.info-button{
+  padding: 0;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+}
+
+.info-button-container{
+  display: flex;
+  flex-direction: row;
 }
