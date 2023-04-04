@@ -57,6 +57,7 @@ option {
 
 .titulo{
   margin: 0;
+  text-align: center;
 }
 .tituloizq {
   display: flex;

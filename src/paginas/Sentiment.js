@@ -39,7 +39,7 @@ export default function Sentiment() {
     <div className="content">
       <div className="left-container">
         <div className="title-left">
-          <h1 className="title">Sentiment</h1>
+          <h1 className="titulo">SENTIMENT</h1>
           <hr className="divider" />
         </div>
         <button
