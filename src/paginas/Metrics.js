@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Metrics.css";
+import Contador from "../components/Contador";
+import LineChart from"../components/LineChart"
 
 export default function Demographics() {
   const [dias, setDias] = useState(30);
@@ -61,11 +63,30 @@ export default function Demographics() {
         </button>
       </div>
       <div className="right-container">
-        <iframe
-          src="https://makeawish.org.mx/reporte/"
-          width="100%"
-          height="100%"
-        />
+        <div className="all-metrics-container">
+          <div className="followers-container">
+            <Contador
+              width="300px"
+              end={209875}
+              title="Facebook"
+              backgroundColor="red"
+              counterColor="white"
+              sufijo="Followers"
+              sufijoColor="#222222"
+              titleColor="#222222"
+            />
+            <Contador
+              width="300px"
+              end={32139}
+              title="Instagram"
+              backgroundColor="red"
+              counterColor="white"
+              sufijo="Followers"
+              sufijoColor="#222222"
+              titleColor="#222222"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

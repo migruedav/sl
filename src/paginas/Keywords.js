@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import MyWordCloud from "../components/WordCloud";
-
+import InfoButton from "../components/InfoButton";
 
 export default function MyPage() {
   const [dias, setDias] = useState(365);
@@ -30,14 +30,12 @@ export default function MyPage() {
     }
   };
 
-
-
   useEffect(() => {
     fetchData(dias);
   }, []);
   return (
     <div className="content">
-        <div className="left-container">
+      <div className="left-container">
         <div className="tituloizq">
           <h1 className="titulo">KEYWORDS</h1>
           <hr className="divider" />
@@ -61,15 +59,14 @@ export default function MyPage() {
         >
           {loading ? "Cargando..." : "Realizar Búsqueda"}
         </button>
-        </div>
-        <div className="right-container">
-            <MyWordCloud keywords={data}/>
-        </div>
       </div>
+      <div className="right-container">
+        <InfoButton text="Se muestran los términos más populares relacionados con la palabra Formica en las búsquedas de Google en el periodo de tiempo elegido." />
+        <MyWordCloud keywords={data} />
+      </div>
+    </div>
   );
 }
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<MyPage />, rootElement);
-
-

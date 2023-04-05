@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GaugeChart from "../components/GaugeChart";
 import "./Sentiment.css";
+import InfoButton from "../components/InfoButton";
 
 export default function Sentiment() {
   // VARIABLES
@@ -89,6 +90,7 @@ export default function Sentiment() {
         </button>
       </div>
       <div className="right-container">
+        <InfoButton text="El Score de Sentimiento se refiere al grado de positividad o negatividad del texto obtenido de los comentarios en las publicaciones de redes sociales en el periodo de tiempo elegido y puede variar entre 0 y 100, donde 0 indica una polaridad completamente negativa y 100 indica una polaridad completamente positiva. "/>
         <div className="gauge">
           <div className="divider-sentiment"></div>
           <GaugeChart className="gauge" sentiment={sentiment} loading={loading} dias={dias} />

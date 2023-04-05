@@ -22,7 +22,7 @@ const options = {
 function MyWordCloud(params) {
   return (
     <div>
-      <div className="word-cloud" style={{ height: 500, width: 900, marginTop:100 }}>
+      <div className="word-cloud" style={{ height: 500, width: 900, marginTop:0 }}>
         <ReactWordcloud options={options} words={params.keywords} />
       </div>
     </div>
