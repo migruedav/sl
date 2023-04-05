@@ -18,9 +18,7 @@ const GaugeChart = (props) => {
     greenTo: 100,
     minorTicks: 5,
     animation: { duration: 400 },
-    redColor: "#222222",
-    yellowColor: "#4F4F4F",
-    greenColor: "#FF0000",
+  
   };
 
   return (
