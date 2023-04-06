@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "../images/logo.png";
 import "./NavBar.css";
 import { supabase } from "../supabase";
-import { MdOutlineLogout } from "react-icons/md";
+import { AiOutlineLogout } from "react-icons/ai";
 
 export default function NavBar() {
   const navigate = useNavigate();
@@ -18,6 +18,8 @@ export default function NavBar() {
       // Aquí puedes hacer cualquier otra acción necesaria después de hacer sign out
     }
   };
+
+  
 
   return (
     <>
@@ -48,8 +50,8 @@ export default function NavBar() {
           <NavLink to="/login" onClick={handleSignOut}
             style={{
               backgroundColor: "red",
-              height: "30px",
-              width: "30px",
+              height: "25px",
+              width: "25px",
               borderRadius: "50%",
               margin: "0px",
               display: "flex",
@@ -57,7 +59,7 @@ export default function NavBar() {
               alignItems: "center",
             }}
           >
-            <MdOutlineLogout size={24} color={"black"} />
+            <AiOutlineLogout size={20} color={"black"} />
           </NavLink>
         </div>
       </nav>
