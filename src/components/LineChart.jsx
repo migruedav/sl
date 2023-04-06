@@ -4,7 +4,6 @@ import "./LineChart.css";
 
 function LineChart(props) {
   const chartData = props.data;
-
   const options = {
     title: "",
     curveType: "function",

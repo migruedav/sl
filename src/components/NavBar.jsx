@@ -19,8 +19,6 @@ export default function NavBar() {
     }
   };
 
-  
-
   return (
     <>
       <nav className="navbar">
@@ -47,7 +45,10 @@ export default function NavBar() {
           <NavLink to="/demographics" className="nav-item">
             DEMOGRAPHICS
           </NavLink>
-          <NavLink to="/login" onClick={handleSignOut}
+          <NavLink
+            title="Logout"
+            to="/login"
+            onClick={handleSignOut}
             style={{
               backgroundColor: "red",
               height: "25px",

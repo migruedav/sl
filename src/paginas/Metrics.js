@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./Metrics.css";
 import Contador from "../components/Contador";
-import LineChart from"../components/LineChart"
+import LineChart from "../components/LineChart";
 
 export default function Demographics() {
   const [dias, setDias] = useState(30);
   const [facebook, setFacebook] = useState(true);
   const [instagram, setInstagram] = useState(true);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [metrics, setMetrics] = useState();
 
   // FUNCIONES
 
@@ -16,6 +17,26 @@ export default function Demographics() {
     setState(!state);
   };
 
+  const fetchData = async (days) => {
+    try {
+      setLoading(true);
+      const url = `https://fastapi-production-b90c.up.railway.app/metrics?days=${days}`;
+      const response = await fetch(url);
+      console.log(url)
+      const data = await response.json();
+      setMetrics(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData(dias);
+  }, []);
+  console.log(metrics);
+  console.log(`Días = ${dias}`)
   return (
     <div className="content">
       <div className="left-container">
@@ -46,16 +67,14 @@ export default function Demographics() {
           <option value="7">7 días</option>
           <option value="15">15 días</option>
           <option value="30">30 días</option>
-          <option value="60">60 días</option>
+          {/*<option value="60">60 días</option>
           <option value="120">120 días</option>
           <option value="180">180 días</option>
-          <option value="360">360 días</option>
+        <option value="365">365 días</option>*/}
         </select>
         <button
           className="fetch-button"
-          /*onClick={() =>
-            fetchData(dias, facebook, instagram)
-          }*/
+          onClick={() => fetchData(dias)}
           disabled={loading}
           style={{ backgroundColor: loading ? "#222222" : "red" }}
         >
@@ -67,7 +86,7 @@ export default function Demographics() {
           <div className="followers-container">
             <Contador
               width="300px"
-              end={209875}
+              end={loading ? 0 : metrics.followers.facebook}
               title="Facebook"
               backgroundColor="red"
               counterColor="white"
@@ -77,7 +96,7 @@ export default function Demographics() {
             />
             <Contador
               width="300px"
-              end={32139}
+              end={loading ? 0 : metrics.followers.instagram}
               title="Instagram"
               backgroundColor="red"
               counterColor="white"
@@ -86,6 +105,22 @@ export default function Demographics() {
               titleColor="#222222"
             />
           </div>
+          {loading ? (
+            "Loading"
+          ) : (
+            <>
+              <h1>Impressions</h1>
+              <LineChart data={metrics.Impressions} />
+            </>
+          )}
+          {loading ? (
+            ""
+          ) : (
+            <>
+              <h1>Reach</h1>
+              <LineChart data={metrics.Reach} />
+            </>
+          )}
         </div>
       </div>
     </div>
