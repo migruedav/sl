@@ -1,9 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../images/logo.png"
-import "./NavBar.css"
+import { useNavigate } from "react-router-dom";
+import logo from "../images/logo.png";
+import "./NavBar.css";
+import { supabase } from "../supabase";
+import { MdOutlineLogout } from "react-icons/md";
 
 export default function NavBar() {
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.log(error.message);
+    } else {
+      console.log("User signed out successfully");
+      // Aquí puedes hacer cualquier otra acción necesaria después de hacer sign out
+    }
+  };
+
   return (
     <>
       <nav className="navbar">
@@ -29,6 +44,20 @@ export default function NavBar() {
           </NavLink>
           <NavLink to="/demographics" className="nav-item">
             DEMOGRAPHICS
+          </NavLink>
+          <NavLink to="/login" onClick={handleSignOut}
+            style={{
+              backgroundColor: "red",
+              height: "30px",
+              width: "30px",
+              borderRadius: "50%",
+              margin: "0px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <MdOutlineLogout size={24} color={"black"} />
           </NavLink>
         </div>
       </nav>
