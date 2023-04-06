@@ -54,7 +54,7 @@ export default function Trends() {
         </div>
 
         <p>Keywords</p>
-        <input type="text" value={keywords} onChange={handleInputChange} />
+        <input className="trends-input" type="text" value={keywords} onChange={handleInputChange} />
         <p>Score de los últimos</p>
         <select value={dias} onChange={(e) => setDias(e.target.value)}>
           <option value="15">15 días</option>
