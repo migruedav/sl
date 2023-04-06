@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Trends.css";
 import LineChart from "../components/LineChart";
 import GeoChart from "../components/GeoChart";
-import InfoButton from"../components/InfoButton";
+import InfoButton from "../components/InfoButton";
 import { Line } from "react-chartjs-2";
+import { ThreeBody } from "@uiball/loaders";
 
 export default function Trends() {
   // VARIABLES
@@ -12,7 +13,7 @@ export default function Trends() {
   const [keywords, setKeywords] = useState(["formica"]);
   const [data, setData] = useState([]);
   const [tendencia, setTendencia] = useState("tiempo");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   // FUNCIONES
 
@@ -54,7 +55,12 @@ export default function Trends() {
         </div>
 
         <p>Keywords</p>
-        <input className="trends-input" type="text" value={keywords} onChange={handleInputChange} />
+        <input
+          className="trends-input"
+          type="text"
+          value={keywords}
+          onChange={handleInputChange}
+        />
         <p>Score de los últimos</p>
         <select value={dias} onChange={(e) => setDias(e.target.value)}>
           <option value="15">15 días</option>
@@ -76,13 +82,19 @@ export default function Trends() {
       </div>
 
       <div className="right-container-trends">
-        <InfoButton text='Los valores del 0 al 100 muestran el interés relativo de un término de búsqueda en Google. Un valor de 0 significa que no hay suficientes datos disponibles, mientras que un valor de 100 indica que el término está en su punto máximo de popularidad en el periodo de tiempo elegido. '/>
-        <LineChart className="line-chart" data={data.iot} />
-        <div className="divider2"></div>
-        <GeoChart data={data.ibr} />
+        <InfoButton text="Los valores del 0 al 100 muestran el interés relativo de un término de búsqueda en Google. Un valor de 0 significa que no hay suficientes datos disponibles, mientras que un valor de 100 indica que el término está en su punto máximo de popularidad en el periodo de tiempo elegido. " />
+        {!loading ? (
+          <>
+            <LineChart className="line-chart" data={data.iot} />
+            <div className="divider2"></div>
+            <GeoChart data={data.ibr} />
+          </>
+        ) : (
+          <div className="loader-container-trends">
+            <ThreeBody size={60} speed={1.1} color="red" />
+          </div>
+        )}
       </div>
     </div>
   );
 }
-
-

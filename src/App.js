@@ -27,6 +27,7 @@ function App() {
           <Route element={<Sentiment />} path="/Sentiment" />
           <Route element={<Trends />} path="/Trends" />
           <Route element={<Keywords />} path="/Keywords" />
+          <Route element={<Metrics />} path="/Metrics" />
           <Route element={<Demographics />} path="/Demographics" />
         </Route>
         <Route element={<Login />} path="/login" />

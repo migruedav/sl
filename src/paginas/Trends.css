@@ -49,3 +49,10 @@ select:focus {
   display: flex;
   flex-direction: row;
 }
+
+.loader-container-trends{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
