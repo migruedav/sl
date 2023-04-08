@@ -13,6 +13,7 @@ const Contador = ({
   counterColor = "black",
   sufijo = "",
   sufijoColor = "black",
+  decimals=0
 }) => {
   return (
     <div
@@ -25,7 +26,10 @@ const Contador = ({
       <CountUp
         end={end}
         duration={duration}
-        style={{ color: counterColor, fontSize: "70px", fontWeight:"700"}}
+        decimals={decimals}
+        decimal="."
+
+        style={{ color: counterColor, fontSize: "60px", fontWeight:"700"}}
       />
       <div className={style.sufijo} style={{ color: sufijoColor }}>
         {sufijo}

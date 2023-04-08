@@ -42,6 +42,9 @@ export default function NavBar() {
           <NavLink to="/keywords" className="nav-item">
             KEYWORDS
           </NavLink>
+          {/*<NavLink to="/metrics" className="nav-item">
+            METRICS
+  </NavLink>*/}
           <NavLink to="/demographics" className="nav-item">
             DEMOGRAPHICS
           </NavLink>
@@ -67,7 +70,3 @@ export default function NavBar() {
     </>
   );
 }
-
-/* <NavLink to="/metrics" className="nav-item">
-            METRICS
-          </NavLink>*/
