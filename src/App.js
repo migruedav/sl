@@ -21,7 +21,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route element={<PrivateRoutes />}>
-          <Route element={<Login />} path="/" exact />
+          <Route element={<TopPosts />} path="/" exact />
           <Route element={<TopPosts />} path="/TopPosts" />
           <Route element={<Mentions />} path="/Mentions" />
           <Route element={<Sentiment />} path="/Sentiment" />
