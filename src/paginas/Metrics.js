@@ -19,9 +19,7 @@ export default function Metrics() {
     "#f2f6fa",
   ];
 
-  const colorsInstagram = [
-    "#E4405F"
-  ];
+  const colorsInstagram = ["#E4405F"];
   // FUNCIONES
 
   const facebookButtonClick = (e, state) => {
@@ -264,7 +262,7 @@ export default function Metrics() {
             </h1>
             <div className="followers-container">
               <Contador
-                width="100%"
+                width="300px"
                 end={loading ? 0 : metrics.followers}
                 title="Followers"
                 backgroundColor="#E4405F"
@@ -274,9 +272,47 @@ export default function Metrics() {
                 titleColor="white"
                 height="150px"
               />
+              <Contador
+                width="300px"
+                height="150px"
+                end={loading ? 0 : metrics.new_followers_total}
+                title="New Followers"
+                backgroundColor="#E4405F"
+                counterColor="white"
+                sufijo=""
+                sufijoColor="white"
+                titleColor="white"
+              />
+              <Contador
+                width="300px"
+                end={loading ? 0 : metrics.new_followers_total_percentage}
+                title="New Followers %"
+                backgroundColor="#E4405F"
+                counterColor="white"
+                sufijo=""
+                sufijoColor="white"
+                titleColor="white"
+                decimals={2}
+                height="150px"
+              />
             </div>
             {loading ? (
               "Loading"
+            ) : (
+              <>
+                <h1>New Followers Count</h1>
+                <LineChart
+                  data={metrics.new_followers_count}
+                  backgroundColor="white"
+                  lineColor={colorsInstagram}
+                  type="LineChart"
+                  height="350px"
+                  width="900px"
+                />
+              </>
+            )}
+            {loading ? (
+              ""
             ) : (
               <>
                 <h1>Impressions</h1>
@@ -306,6 +342,64 @@ export default function Metrics() {
                 />
               </>
             )}
+
+            <div className="ig-metrics-counters">
+              <Contador
+                width="250px"
+                height="150px"
+                end={loading ? 0 : metrics.likes}
+                title="Likes"
+                backgroundColor="#E4405F"
+                counterColor="white"
+                sufijo=""
+                sufijoColor="white"
+                titleColor="white"
+              />
+              <Contador
+                width="250px"
+                height="150px"
+                end={loading ? 0 : metrics.comments}
+                title="Comments"
+                backgroundColor="#E4405F"
+                counterColor="white"
+                sufijo=""
+                sufijoColor="white"
+                titleColor="white"
+              />
+              <Contador
+                width="250px"
+                height="150px"
+                end={loading ? 0 : metrics.shares}
+                title="Shares"
+                backgroundColor="#E4405F"
+                counterColor="white"
+                sufijo=""
+                sufijoColor="white"
+                titleColor="white"
+              />
+              <Contador
+                width="250px"
+                height="150px"
+                end={loading ? 0 : metrics.saves}
+                title="Saves"
+                backgroundColor="#E4405F"
+                counterColor="white"
+                sufijo=""
+                sufijoColor="white"
+                titleColor="white"
+              />
+              <Contador
+                width="250px"
+                height="150px"
+                end={loading ? 0 : metrics.replies}
+                title="Replies"
+                backgroundColor="#E4405F"
+                counterColor="white"
+                sufijo=""
+                sufijoColor="white"
+                titleColor="white"
+              />
+            </div>
           </div>
         ) : (
           <></>
