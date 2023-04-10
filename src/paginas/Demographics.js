@@ -3,7 +3,6 @@ import "./Demographics.css";
 import DonutChart from "../components/DonutChart";
 import BarsChart from "../components/BarsChart";
 import Tabla from "../components/Tabla";
-import { LeapFrog } from "@uiball/loaders";
 
 export default function Demographics() {
   const [facebook, setFacebook] = useState(true);
