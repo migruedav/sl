@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Metrics.css";
+import style from "./Metrics.module.css";
 import Contador from "../components/Contador";
 import LineChart from "../components/LineChart";
 
@@ -108,16 +108,19 @@ export default function Metrics() {
           {loading ? "Cargando..." : "Realizar Búsqueda"}
         </button>
       </div>
+
+      {/*RIGHT CONTAINER*/}
+
       <div className="right-container">
         {facebook ? (
-          <div className="all-metrics-container">
+          <div className={style.allMetricsContainer}>
             <h1
-              className="social-network-title"
+              className={style.socialNetworkTitle}
               style={{ backgroundColor: "blue" }}
             >
               FACEBOOK METRICS
             </h1>
-            <div className="followers-container">
+            <div className={style.followersContainer}>
               <Contador
                 width="300px"
                 end={loading ? 0 : metrics.followers}
@@ -253,14 +256,14 @@ export default function Metrics() {
         )}
 
         {instagram ? (
-          <div className="all-metrics-container">
+          <div className={style.allMetricsContainer}>
             <h1
-              className="social-network-title"
+              className={style.socialNetworkTitle}
               style={{ backgroundColor: "#E4405F" }}
             >
               INSTAGRAM METRICS
             </h1>
-            <div className="followers-container">
+            <div className={style.followersContainer}>
               <Contador
                 width="300px"
                 end={loading ? 0 : metrics.followers}
@@ -295,6 +298,8 @@ export default function Metrics() {
                 decimals={2}
                 height="150px"
               />
+
+              <div className="ig-metrics-counters"></div>
             </div>
             {loading ? (
               "Loading"
@@ -343,67 +348,73 @@ export default function Metrics() {
               </>
             )}
 
-            <div className="ig-metrics-counters">
-              <Contador
-                width="250px"
-                height="150px"
-                end={loading ? 0 : metrics.likes}
-                title="Likes"
-                backgroundColor="#E4405F"
-                counterColor="white"
-                sufijo=""
-                sufijoColor="white"
-                titleColor="white"
-              />
-              <Contador
-                width="250px"
-                height="150px"
-                end={loading ? 0 : metrics.comments}
-                title="Comments"
-                backgroundColor="#E4405F"
-                counterColor="white"
-                sufijo=""
-                sufijoColor="white"
-                titleColor="white"
-              />
-              <Contador
-                width="250px"
-                height="150px"
-                end={loading ? 0 : metrics.shares}
-                title="Shares"
-                backgroundColor="#E4405F"
-                counterColor="white"
-                sufijo=""
-                sufijoColor="white"
-                titleColor="white"
-              />
-              <Contador
-                width="250px"
-                height="150px"
-                end={loading ? 0 : metrics.saves}
-                title="Saves"
-                backgroundColor="#E4405F"
-                counterColor="white"
-                sufijo=""
-                sufijoColor="white"
-                titleColor="white"
-              />
-              <Contador
-                width="250px"
-                height="150px"
-                end={loading ? 0 : metrics.replies}
-                title="Replies"
-                backgroundColor="#E4405F"
-                counterColor="white"
-                sufijo=""
-                sufijoColor="white"
-                titleColor="white"
-              />
-            </div>
+            {loading ? (
+              ""
+            ) : (
+              <div className={style.igCounters}>
+                <Contador
+                  width="250px"
+                  height="150px"
+                  end={loading ? 0 : metrics.likes}
+                  title="Likes"
+                  backgroundColor="#E4405F"
+                  counterColor="white"
+                  sufijo=""
+                  sufijoColor="white"
+                  titleColor="white"
+                />
+                <Contador
+                  width="250px"
+                  height="150px"
+                  end={loading ? 0 : metrics.comments}
+                  title="Comments"
+                  backgroundColor="#E4405F"
+                  counterColor="white"
+                  sufijo=""
+                  sufijoColor="white"
+                  titleColor="white"
+                />
+                <Contador
+                  width="250px"
+                  height="150px"
+                  end={loading ? 0 : metrics.shares}
+                  title="Shares"
+                  backgroundColor="#E4405F"
+                  counterColor="white"
+                  sufijo=""
+                  sufijoColor="white"
+                  titleColor="white"
+                />
+                <Contador
+                  width="250px"
+                  height="150px"
+                  end={loading ? 0 : metrics.saves}
+                  title="Saves"
+                  backgroundColor="#E4405F"
+                  counterColor="white"
+                  sufijo=""
+                  sufijoColor="white"
+                  titleColor="white"
+                />
+                <Contador
+                  width="250px"
+                  height="150px"
+                  end={loading ? 0 : metrics.replies}
+                  title="Replies"
+                  backgroundColor="#E4405F"
+                  counterColor="white"
+                  sufijo=""
+                  sufijoColor="white"
+                  titleColor="white"
+                />
+              </div>
+            )}
           </div>
         ) : (
           <></>
         )}
+
+        <div></div>
       </div>
     </div>
   );
