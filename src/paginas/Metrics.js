@@ -63,7 +63,7 @@ export default function Metrics() {
           <hr className="divider" />
         </div>
         <button
-          className="button"
+          className="facebook-toggle"
           onClick={(e) => facebookButtonClick(e, facebook)}
           style={{
             backgroundColor: facebook ? "red" : "#222222",
@@ -72,7 +72,7 @@ export default function Metrics() {
           Facebook
         </button>
         <button
-          className="button"
+          className="instagram-toggle"
           onClick={(e) => instagramButtonClick(e, instagram)}
           style={{
             backgroundColor: instagram ? "red" : "#222222",

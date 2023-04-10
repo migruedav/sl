@@ -48,7 +48,7 @@ export default function TopPosts() {
           <h1 className="titulo">TOP POSTS</h1>
           <hr className="divider" />
         </div>
-        <button
+        <button className="facebook-toggle"
           onClick={(e) => handleButtonClick(e, facebook, setFacebook)}
           style={{
             backgroundColor: facebook ? "red" : "#222222",
@@ -56,7 +56,7 @@ export default function TopPosts() {
         >
           Facebook
         </button>
-        <button
+        <button className="instagram-toggle"
           onClick={(e) => handleButtonClick(e, instagram, setInstagram)}
           style={{
             backgroundColor: instagram ? "red" : "#222222",

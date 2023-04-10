@@ -47,7 +47,7 @@ export default function Mentions() {
         </div>
 
         <button
-          className="button"
+          className="facebook-toggle"
           onClick={(e) => handleButtonClick(e, facebook, setFacebook)}
           style={{
             backgroundColor: facebook ? "red" : "#222222",
@@ -56,7 +56,7 @@ export default function Mentions() {
           Facebook
         </button>
         <button
-          className="button"
+          className="instagram-toggle"
           onClick={(e) => handleButtonClick(e, instagram, setInstagram)}
           style={{
             backgroundColor: instagram ? "red" : "#222222",
