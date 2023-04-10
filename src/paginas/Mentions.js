@@ -37,6 +37,7 @@ export default function Mentions() {
   useEffect(() => {
     fetchData(dias, cantidad, facebook, instagram, sortedby);
   }, []);
+  
   // RETURN∫
   return (
     <div className="content">
