@@ -38,7 +38,6 @@ export default function Metrics() {
       setLoading(true);
       const url = `https://fastapi-production-b90c.up.railway.app/metrics?days=${days}&facebook=${facebook}&instagram=${instagram}`;
       const response = await fetch(url);
-      console.log(url);
       const data = await response.json();
       setMetrics(data);
     } catch (error) {
@@ -56,8 +55,6 @@ export default function Metrics() {
     fetchData(dias);
   }, [facebook]);
 
-  console.log(metrics);
-  console.log(`Días = ${dias}`);
   return (
     <div className="content">
       <div className="left-container">

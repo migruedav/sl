@@ -27,7 +27,6 @@ export default function Demographics() {
       const response = await fetch(url);
       const data = await response.json();
       setAgeGender(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     } finally {
@@ -42,7 +41,6 @@ export default function Demographics() {
       const response = await fetch(url);
       const data = await response.json();
       setGender(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     } finally {

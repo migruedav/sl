@@ -9,7 +9,6 @@ const PrivateRoutes = () => {
   async function CheckSession() {
     const { data, error } = await supabase.auth.getSession();
     if (data) {
-      console.log(data.session);
       if (data.session != null) {
         setAuth(true);
       } else {
