@@ -10,7 +10,7 @@ export default function TopPosts() {
   const [cantidad, setCantidad] = useState(20);
   const [facebook, setFacebook] = useState(true);
   const [instagram, setInstagram] = useState(true);
-  const [youtube, setYoutube] = useState(false);
+  const [youtube, setYoutube] = useState(true);
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -63,6 +63,14 @@ export default function TopPosts() {
           }}
         >
           Instagram
+        </button>
+        <button className="youtube-toggle"
+          onClick={(e) => handleButtonClick(e, youtube, setYoutube)}
+          style={{
+            backgroundColor: youtube ? "red" : "#222222",
+          }}
+        >
+          Youtube
         </button>
 
         <p>Top Posts de los últimos</p>

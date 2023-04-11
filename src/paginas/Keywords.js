@@ -6,6 +6,7 @@ import InfoButton from "../components/InfoButton";
 export default function MyPage() {
   const [dias, setDias] = useState(365);
   const [data, setData] = useState([]);
+  const [keyword, setKeyword] = useState("formica");
   const [tendencia, setTendencia] = useState("tiempo");
   const [loading, setLoading] = useState(false);
 
@@ -19,7 +20,7 @@ export default function MyPage() {
   const fetchData = async (dias) => {
     try {
       setLoading(true);
-      const url = `https://fastapi-production-b90c.up.railway.app/wordcloud?days=${dias}`;
+      const url = `https://fastapi-production-b90c.up.railway.app/wordcloud?days=${dias}&keyword=${keyword}`;
       const response = await fetch(url);
       const data = await response.json();
       setData(data);
@@ -28,6 +29,11 @@ export default function MyPage() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleInputChange = (event) => {
+    const value = event.target.value;
+    setKeyword(value);
   };
 
   useEffect(() => {
@@ -41,6 +47,13 @@ export default function MyPage() {
           <hr className="divider" />
         </div>
 
+        <input
+          className="trends-input"
+          type="text"
+          value={keyword}
+          onChange={handleInputChange}
+        />
+        <p>Keywords de los últimos</p>
         <select value={dias} onChange={(e) => setDias(e.target.value)}>
           <option value="7">7 días</option>
           <option value="15">15 días</option>
