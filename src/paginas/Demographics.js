@@ -3,13 +3,14 @@ import "./Demographics.css";
 import DonutChart from "../components/DonutChart";
 import BarsChart from "../components/BarsChart";
 import Tabla from "../components/Tabla";
+import { ThreeBody } from "@uiball/loaders";
 
 export default function Demographics() {
   const [facebook, setFacebook] = useState(true);
-  const [ageGender, setAgeGender] = useState("");
-  const [gender, setGender] = useState({ male: 0, female: 0 });
-  const [tableData, setTableData] = useState({});
   const [instagram, setInstagram] = useState(true);
+  const [ageGender, setAgeGender] = useState();
+  const [gender, setGender] = useState({ male: 0, female: 0 });
+  const [tableData, setTableData] = useState();
   const [loading, setLoading] = useState(true);
 
   // FUNCIONES
@@ -19,7 +20,7 @@ export default function Demographics() {
     setState(!state);
   };
 
-  const fetchData = async (facebook, instagram) => {
+  const fetchData = async () => {
     try {
       setLoading(true);
       const url = `https://fastapi-production-b90c.up.railway.app/demographicsagegender?facebook=${facebook}&instagram=${instagram}`;
@@ -33,43 +34,31 @@ export default function Demographics() {
     }
   };
 
-  const fetchData2 = async (facebook, instagram) => {
+  const fetchData2 = async () => {
     try {
-      setLoading(true);
       const url = `https://fastapi-production-b90c.up.railway.app/malefemaleperc?facebook=${facebook}&instagram=${instagram}`;
       const response = await fetch(url);
       const data = await response.json();
       setGender(data);
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoading(false);
     }
   };
 
   const fetchData3 = async () => {
     try {
-      setLoading(true);
       const url = `https://fastapi-production-b90c.up.railway.app/cities`;
       const response = await fetch(url);
       const data = await response.json();
       setTableData(data);
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchData(facebook, instagram);
-  }, []);
-
-  useEffect(() => {
-    fetchData2(facebook, instagram);
-  }, []);
-
-  useEffect(() => {
+    fetchData();
+    fetchData2();
     fetchData3();
   }, []);
 
@@ -101,9 +90,9 @@ export default function Demographics() {
         <button
           className="fetch-button"
           onClick={() => {
-            fetchData(facebook, instagram);
-            fetchData2(facebook, instagram);
-            fetchData3(facebook, instagram);
+            fetchData();
+            fetchData2();
+            fetchData3();
           }}
           disabled={loading}
           style={{ backgroundColor: loading ? "#222222" : "red" }}
@@ -112,39 +101,45 @@ export default function Demographics() {
         </button>
       </div>
       <div className="right-container">
-        <>
-          <div className="charts-container">
-            <div className="male-chart-container">
-              <DonutChart
-                className="male-chart"
-                style={{ marginTop: 0 }}
-                data={gender}
-                colors={["#FF1800", "#222222"]}
-              />
-              <img
-                className="male-img"
-                src="https://cdn.midjourney.com/72702343-ac6c-4ff1-8a4a-591e50953993/grid_0.png"
-                alt=""
-              />
-            </div>
-            <div className="female-chart-container">
-              <DonutChart
-                className="male-chart"
-                data={gender}
-                colors={["#222222", "#FF1800"]}
-              />
-              <img
-                className="female-img"
-                src="https://cdn.midjourney.com/2fafe310-a5b5-499c-bb7e-1400e016771f/grid_0.png"
-                alt=""
-              />
-            </div>
+        {loading ? (
+          <div className="loader-container">
+            <ThreeBody size={60} speed={1.1} color="red" />
           </div>
-          <BarsChart className="demo-bars-chart" data={ageGender} />
-          <div>
-            <Tabla data={tableData} />
-          </div>
-        </>
+        ) : (
+          <>
+            <div className="charts-container">
+              <div className="male-chart-container">
+                <DonutChart
+                  className="male-chart"
+                  style={{ marginTop: 0 }}
+                  data={gender}
+                  colors={["#FF1800", "#222222"]}
+                />
+                <img
+                  className="male-img"
+                  src="https://cdn.midjourney.com/72702343-ac6c-4ff1-8a4a-591e50953993/grid_0.png"
+                  alt=""
+                />
+              </div>
+              <div className="female-chart-container">
+                <DonutChart
+                  className="male-chart"
+                  data={gender}
+                  colors={["#222222", "#FF1800"]}
+                />
+                <img
+                  className="female-img"
+                  src="https://cdn.midjourney.com/2fafe310-a5b5-499c-bb7e-1400e016771f/grid_0.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <BarsChart className="demo-bars-chart" data={ageGender} />
+            <div>
+              <Tabla data={tableData} />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

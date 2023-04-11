@@ -80,6 +80,3 @@ export default function MyPage() {
     </div>
   );
 }
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<MyPage />, rootElement);
