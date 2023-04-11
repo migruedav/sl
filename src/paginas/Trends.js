@@ -3,7 +3,6 @@ import "./Trends.css";
 import LineChart from "../components/LineChart";
 import GeoChart from "../components/GeoChart";
 import InfoButton from "../components/InfoButton";
-import { Line } from "react-chartjs-2";
 import { ThreeBody } from "@uiball/loaders";
 
 export default function Trends() {
@@ -12,15 +11,10 @@ export default function Trends() {
   const [dias, setDias] = useState(60);
   const [keywords, setKeywords] = useState(["formica"]);
   const [data, setData] = useState([]);
-  const [tendencia, setTendencia] = useState("tiempo");
   const [loading, setLoading] = useState(true);
 
   // FUNCIONES
 
-  const handleButtonClick = (e, state, setState) => {
-    e.preventDefault();
-    setState(!state);
-  };
 
   const fetchData = async (dias, keywords) => {
     try {

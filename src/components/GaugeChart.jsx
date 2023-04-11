@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 import "./GaugeChart.css";
 
 const GaugeChart = (props) => {
-  const [loading, setLoading] = useState(false);
   const data = [
     ["Label", "Value"],
     ["Sentiment", props.loading ? 0 : parseInt(props.sentiment.total_str)],

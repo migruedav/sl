@@ -1,13 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import logo from "../images/logo.png";
 import "./NavBar.css";
 import { supabase } from "../supabase";
 import { AiOutlineLogout } from "react-icons/ai";
 
 export default function NavBar() {
-  const navigate = useNavigate();
 
   const handleSignOut = async () => {
     const { error } = await supabase.auth.signOut();

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
 import MyWordCloud from "../components/WordCloud";
 import InfoButton from "../components/InfoButton";
 
@@ -7,15 +6,9 @@ export default function MyPage() {
   const [dias, setDias] = useState(365);
   const [data, setData] = useState([]);
   const [keyword, setKeyword] = useState("formica");
-  const [tendencia, setTendencia] = useState("tiempo");
   const [loading, setLoading] = useState(false);
 
   // FUNCIONES
-
-  const handleButtonClick = (e, state, setState) => {
-    e.preventDefault();
-    setState(!state);
-  };
 
   const fetchData = async (dias) => {
     try {
