@@ -24,6 +24,7 @@ export default function Sentiment() {
       const response = await fetch(url);
       const data = await response.json();
       setSentiment(data);
+      console.log(data);
     } catch (error) {
       console.log(error);
     } finally {
@@ -33,7 +34,7 @@ export default function Sentiment() {
 
   useEffect(() => {
     fetchData(dias, facebook, instagram);
-  }, [dias, facebook, instagram]);
+  }, []);
 
   // RETURN
   return (
@@ -90,10 +91,44 @@ export default function Sentiment() {
         </button>
       </div>
       <div className="right-container">
-        <InfoButton text="El Score de Sentimiento se refiere al grado de positividad o negatividad del texto obtenido de los comentarios en las publicaciones de redes sociales en el periodo de tiempo elegido y puede variar entre 0 y 100, donde 0 indica una polaridad completamente negativa y 100 indica una polaridad completamente positiva. "/>
+        <InfoButton text="El Score de Sentimiento se refiere al grado de positividad o negatividad del texto obtenido de los comentarios en las publicaciones de redes sociales en el periodo de tiempo elegido y puede variar entre 0 y 100, donde 0 indica una polaridad completamente negativa y 100 indica una polaridad completamente positiva. El porcentaje de positivos es el porcentaje de comentarios con un sentimiento positivo y el Score de Objetividad se refiere a el porcenaje de texto que se puede analizar completamente como positivo o negativo en un comentario" />
         <div className="gauge">
           <div className="divider-sentiment"></div>
-          <GaugeChart className="gauge" sentiment={sentiment} loading={loading} dias={dias} />
+          <div className="all-gauge-container">
+            <div className="gauge-container">
+              <GaugeChart
+                className="gauge"
+                sentiment={sentiment.porcentaje_positivos_str}
+                loading={loading}
+                dias={dias}
+                width={300}
+                height={300}
+              />
+              <p>PORCENTAJE DE POSITIVOS</p>
+            </div>
+            <div className="gauge-container">
+              <GaugeChart
+                className="gauge"
+                sentiment={sentiment.total_str}
+                loading={loading}
+                dias={dias}
+                width={400}
+                height={400}
+              />
+              <h1>SCORE</h1>
+            </div>
+            <div className="gauge-container">
+              <GaugeChart
+                className="gauge"
+                sentiment={sentiment.objetividad_str}
+                loading={loading}
+                dias={dias}
+                width={300}
+                height={300}
+              />
+              <p>OBJETIVIDAD</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

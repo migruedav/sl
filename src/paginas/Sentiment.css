@@ -1,20 +1,129 @@
+[id^="reactgooglegraph"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  [id^="reactgooglegraph"] {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.container-indicadores {
+  margin-top: 20px;
+}
 
-  .container-indicadores{
-    margin-top: 20px;
-  }
+.indicador {
+  font-size: 20px;
+  padding: 50px;
+  text-align: center;
+}
 
-  .indicador{
-    font-size: 20px;
-    padding: 50px;
-    text-align: center;
-  }
+.divider-sentiment {
+  height: 10px;
+}
 
-  .divider-sentiment{
-    height: 10px;
-  }
+.all-gauge-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gauge-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gauge-container p {
+  font-size: 18px;
+  margin-top: 10px;
+  font-family: Poppins;
+}
+
+[id^="reactgooglegraph-"][id$="1"],
+[id^="reactgooglegraph-"][id$="2"],
+[id^="reactgooglegraph-"][id$="3"]
+  > table
+  > tbody
+  > tr
+  > td
+  > div
+  > div:nth-child(1)
+  > div
+  > svg
+  > g
+  > circle:nth-child(1) {
+  fill: black;
+}
+
+#reactgooglegraph-2
+  > table
+  > tbody
+  > tr
+  > td
+  > div
+  > div:nth-child(1)
+  > div
+  > svg
+  > g
+  > circle:nth-child(1) {
+  fill: black;
+}
+
+#reactgooglegraph-1
+  > table
+  > tbody
+  > tr
+  > td
+  > div
+  > div:nth-child(1)
+  > div
+  > svg
+  > g
+  > circle:nth-child(1) {
+  fill: black;
+}
+
+[id^="reactgooglegraph-"][id$="1"],
+[id^="reactgooglegraph-"][id$="2"],
+[id^="reactgooglegraph-"][id$="3"]
+  > table
+  > tbody
+  > tr
+  > td
+  > div
+  > div:nth-child(1)
+  > div
+  > svg
+  > g
+  > g
+  > circle {
+  fill: black;
+}
+
+#reactgooglegraph-2
+  > table
+  > tbody
+  > tr
+  > td
+  > div
+  > div:nth-child(1)
+  > div
+  > svg
+  > g
+  > g
+  > circle {
+  fill: black;
+}
+
+#reactgooglegraph-1
+  > table
+  > tbody
+  > tr
+  > td
+  > div
+  > div:nth-child(1)
+  > div
+  > svg
+  > g
+  > g
+  > circle {
+  fill: black;
+}

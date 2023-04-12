@@ -4,13 +4,7 @@ text[text-anchor="middle"][x="200"][y="332"][font-family="arial"][font-size="40"
   font-weight: 700;
 }
 
-circle[cx="199.5"][cy="199.5"][r="24"][stroke="#666666"][stroke-width="1"][fill="#4684ee"] {
-  fill: red;
-}
-
-circle[cx="199.5"][cy="199.5"][r="180"][stroke="#333333"][stroke-width="1"][fill="#cccccc"] {
-  fill: black;
-}
+circle{}
 
 [id^="reactgooglegraph"]> table > tbody > tr > td > div > div:nth-child(1) > div > svg > g > g > path {
   fill: black; /* Cambiar el color de relleno del elemento a rojo */
