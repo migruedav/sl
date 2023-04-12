@@ -108,7 +108,7 @@ export default function Metrics() {
 
       {/*RIGHT CONTAINER*/}
 
-      <div className="right-container">
+      <div id="report" className="right-container">
         {facebook ? (
           <div className={style.allMetricsContainer}>
             <h1

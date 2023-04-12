@@ -9,12 +9,8 @@ function GeoChart(props) {
     resolution: "provinces",
     colorAxis: {
       colors: [
-        "#ff0000",
-        "#e60000",
-        "#cc0000",
-        "#b30000",
-        "#990000",
-        "#800000",
+        "#ff0005",
+        "#4c0001"
       ],
     },
     tooltip: {
