@@ -19,7 +19,7 @@ export default function Trends() {
   const fetchData = async (dias, keywords) => {
     try {
       setLoading(true);
-      const url = `https://fastapi-production-b90c.up.railway.app/trends?days=${dias}&keywords=${keywords}`;
+      const url = `https://fastapi-production-b90c.up.railway.app/trends2?days=${dias}&keywords=${keywords}`;
       const response = await fetch(url);
       const data = await response.json();
       setData(data);
@@ -79,9 +79,9 @@ export default function Trends() {
         <InfoButton text="Los valores del 0 al 100 muestran el interés relativo de un término de búsqueda en Google. Un valor de 0 significa que no hay suficientes datos disponibles, mientras que un valor de 100 indica que el término está en su punto máximo de popularidad en el periodo de tiempo elegido. " />
         {!loading ? (
           <>
-            <LineChart className="line-chart" data={data.iot} />
+            <LineChart className="line-chart" data={data.interest_over_time} />
             <div className="divider2"></div>
-            <GeoChart data={data.ibr} />
+            <GeoChart data={data.interest_by_region} />
           </>
         ) : (
           <div className="loader-container-trends">
