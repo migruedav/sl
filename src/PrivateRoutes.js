@@ -27,7 +27,7 @@ const PrivateRoutes = () => {
   }, []);
 
   if (loading) { // mostrar indicador de carga mientras se está cargando
-    return <div>Cargando...</div>;
+    return <div></div>;
   }
 
   return auth ? <Outlet /> : <Navigate to="/login" />;

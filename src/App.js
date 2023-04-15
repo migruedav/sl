@@ -11,17 +11,18 @@ import Sentiment from "./paginas/Sentiment";
 import TopPosts from "./paginas/TopPosts";
 import Trends from "./paginas/Trends";
 import Login from "./paginas/LoginPage";
+import Report from "./paginas/Report";
 import { BrowserRouter, Route, Routes, Redirect } from "react-router-dom";
 import PrivateRoutes from "./PrivateRoutes";
 
 function App() {
-
   return (
     <BrowserRouter>
       <NavBar />
       <Routes>
         <Route element={<PrivateRoutes />}>
           <Route element={<TopPosts />} path="/" exact />
+          <Route element={<Report />} path="/Report" exact />
           <Route element={<TopPosts />} path="/TopPosts" />
           <Route element={<Mentions />} path="/Mentions" />
           <Route element={<Sentiment />} path="/Sentiment" />
